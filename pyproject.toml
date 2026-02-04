@@ -1,0 +1,13 @@
+[project]
+name = "semantic-word-ladder"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "faiss-cpu>=1.13.2",
+    "matplotlib>=3.10.8",
+    "numpy>=2.2.6",
+    "sentence-transformers>=5.2.2",
+    "streamlit>=1.53.1",
+]
