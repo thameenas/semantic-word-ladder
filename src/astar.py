@@ -73,5 +73,9 @@ def reconstruct_path(came_from, current):
 
 
 if __name__ == "__main__":
-    path = astar_search("thought", "work")
+    from .visualize import visualize_path
+
+    path = astar_search("king", "change")
     print(" → ".join(path))
+    visualize_path(path)
+
