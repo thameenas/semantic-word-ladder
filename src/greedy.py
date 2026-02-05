@@ -17,17 +17,15 @@ def greedy_walk(start: str, target:str, max_steps:int = 10):
     for _ in range(max_steps):
         if current == target:
             return path
-        neighbours = get_neighbours(current, k=2)
+        neighbours = get_neighbours(current, k=5)
 
         best_score = -1
         best_word = None
         # for each neighbour, get similarity score to target and pick the neighbours with highest score
         for neighbour,_ in neighbours:
-            print("Current neighbour:", neighbour)
             if neighbour in path:
                 continue
             score = cosine_sim(neighbour, target)
-            print(f"Cosine similarity between {neighbour} and {target}: {score:.3f}")
             if score > best_score:
                 best_score = score
                 best_word = neighbour
@@ -42,5 +40,5 @@ def greedy_walk(start: str, target:str, max_steps:int = 10):
 
 
 if __name__ == "__main__":
-    path = greedy_walk("king", "queen")
+    path = greedy_walk("thought", "work")
     print(" → ".join(path))
