@@ -32,16 +32,7 @@ This allows semantic navigation to be treated as a **graph search problem** rath
 
 ### 3. A* Search for Semantic Navigation
 
-The ladder is found using **A\*** search, where:
-
-- Each step moves to a nearby semantic neighbor
-- The algorithm balances:
-  - **local smoothness** (don’t jump too far)
-  - **progress toward the target**
-
-Conceptually, the search answers:
-
-> *“What sequence of small semantic steps best connects these two concepts?”*
+The ladder is found using **A\*** search, where each step moves to a nearby semantic neighbor
 
 ---
 
