@@ -1,3 +1,13 @@
+---
+title: Semantic Word Ladder
+emoji: 🪜
+colorFrom: blue
+colorTo: purple
+sdk: docker
+app_file: app.py
+pinned: false
+---
+
 # Semantic Word Ladder 🪜
 
 A small hobby project to explore how words are connected in embedding space by treating semantic similarity as a search problem.
