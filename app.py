@@ -20,6 +20,26 @@ with col1:
 with col2:
     end_word = st.text_input("End word", value="queen")
 
+st.subheader("Search controls")
+
+alpha = st.slider(
+    "Alpha (goal pull)",
+    min_value=0.0,
+    max_value=2.0,
+    value=1.0,
+    step=0.1,
+    help="Higher = greedier toward target, Lower = smoother ladders"
+)
+
+k = st.slider(
+    "k (neighbors per step)",
+    min_value=2,
+    max_value=15,
+    value=5,
+    step=1,
+    help="Higher = more exploration, Lower = tighter local steps"
+)
+
 run = st.button("Find semantic path")
 
 st.divider()
@@ -29,7 +49,7 @@ if run:
         st.error("Please enter both start and end words.")
     else:
         with st.spinner("Searching semantic space..."):
-            path = astar_search(start_word, end_word)
+            path = astar_search(start_word, end_word, alpha=alpha, k=k)
 
         if path is None:
             st.warning("No semantic path found.")
