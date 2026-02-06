@@ -2,7 +2,7 @@
 
 A small hobby project to explore how words are connected in embedding space by treating semantic similarity as a search problem.
 
-Given a start word and a target word, the system finds a **semantic ladder** — a sequence of intermediate words that gradually move from the start to the target based on **cosine similarity**.
+Given a start word and a target word, the system finds a **semantic ladder** - a sequence of intermediate words that gradually move from the start to the target based on **cosine similarity**.
 
 ---
 
@@ -32,17 +32,21 @@ This allows semantic navigation to be treated as a **graph search problem** rath
 
 ### 3. A* Search for Semantic Navigation
 
-The ladder is found using **A\*** search, where each step moves to a nearby semantic neighbor
+The ladder is found using **A\*** search, where:
+
+- Each step moves to a nearby semantic neighbor
+- The algorithm balances:
+  - **local smoothness** (don’t jump too far)
+  - **progress toward the target**
 
 ---
 
 ## Project Structure
 
-## Setup & Usage
+### Setup & Usage
 
 This project is designed to be run locally using **Python + uv**.
 
----
 
 ### Prerequisites
 
@@ -51,18 +55,22 @@ This project is designed to be run locally using **Python + uv**.
 
 ```bash
 pip install uv
-
+```
 
 ### Install dependencies
+```
 uv pip install -r requirements.txt
-
+```
 ### Prepare dataset
-Create or edit the vocabulary file: data/words.txt
+Create or edit the vocabulary file: 
+```data/words.txt```
 
 ### Generate embeddings (one-time step)
 
 Convert words into vectors and save them locally:
-```uv run python src/embed.py```
+```
+uv run python src/embed.py
+```
 
 This generates:
 ```
