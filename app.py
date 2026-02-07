@@ -57,7 +57,6 @@ if run:
                 st.success(" → ".join(f"**{w}**" for w in path))
         except (ValueError, KeyError) as e:
             st.error(f"❌ Word {e} not in vocabulary. Please try another word.")
-            st.info("The vocabulary contains the 10,000 most common English words.")
         except Exception as e:
             st.error(f"⚠️ An unexpected error occurred. Please try again.")
 
