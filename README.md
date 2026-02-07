@@ -76,7 +76,10 @@ uv pip install -r requirements.txt
 ```
 ### Prepare dataset
 Create or edit the vocabulary file: 
-```data/words.txt```
+```
+data/words.txt
+```
+The dataset that is used for this project is from: https://github.com/first20hours/google-10000-english/blob/master/google-10000-english-no-swears.txt
 
 ### Generate embeddings (one-time step)
 
