@@ -46,12 +46,15 @@ if run:
     if not start_word or not end_word:
         st.error("Please enter both start and end words.")
     else:
-        with st.spinner("Searching semantic space..."):
-            path = astar_search(start_word, end_word, alpha=alpha, k=k)
+        try:
+            with st.spinner("Searching semantic space..."):
+                path = astar_search(start_word, end_word, alpha=alpha, k=k)
 
-        if path is None:
-            st.warning("No semantic path found.")
-        else:
-            st.markdown("Semantic ladder found!")
-            st.success(" → ".join(f"**{w}**" for w in path))
+            if path is None:
+                st.warning("No semantic path found.")
+            else:
+                st.markdown("Semantic ladder found!")
+                st.success(" → ".join(f"**{w}**" for w in path))
+        except (ValueError, KeyError) as e:
+            st.error(f"❌ Word {e} not in vocabulary. Please try another word.")
 
