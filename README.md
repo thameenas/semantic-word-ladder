@@ -10,8 +10,9 @@ tags:
 app_file: app.py
 pinned: false
 ---
-
 # Semantic Word Ladder 🪜
+
+Access the app at: https://huggingface.co/spaces/thameena/semantic-word-ladder
 
 A small hobby project to explore how words are connected in embedding space by treating semantic similarity as a search problem.
 
