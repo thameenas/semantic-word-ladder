@@ -20,15 +20,6 @@ with col2:
 
 st.subheader("Search controls")
 
-alpha = st.slider(
-    "Alpha (goal pull)",
-    min_value=0.0,
-    max_value=2.0,
-    value=1.0,
-    step=0.1,
-    help="Higher = greedier toward target, Lower = smoother ladders"
-)
-
 k = st.slider(
     "k (neighbors per step)",
     min_value=2,
@@ -48,7 +39,7 @@ if run:
     else:
         try:
             with st.spinner("Searching semantic space..."):
-                path = astar_search(start_word, end_word, alpha=alpha, k=k)
+                path = astar_search(start_word, end_word, k=k)
 
             if path is None:
                 st.warning("No semantic path found.")

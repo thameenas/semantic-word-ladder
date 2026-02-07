@@ -14,7 +14,6 @@ def astar_search(
     target: str,
     max_steps: int = 20,
     k: int = 10,
-    alpha: float = 1.0,
 ):
     """
     A* search in semantic space.
@@ -55,8 +54,11 @@ def astar_search(
                 came_from[neighbor] = current
                 g_score[neighbor] = tentative_g
 
+                # Heuristic function is the cosine similiarity between neighbor and target.
+                # Since cosine similirity of 1 means identical and -1 means non-identical, and we want the f() to be lower for more similar words, 
+                # we can use (1 - cosine_sim) as the heuristic.
                 h = 1 - cosine_sim(neighbor, target)
-                f = tentative_g + alpha * h
+                f = tentative_g + h
 
                 heapq.heappush(open_set, (f, neighbor))
 
@@ -73,9 +75,6 @@ def reconstruct_path(came_from, current):
 
 
 if __name__ == "__main__":
-    from .visualize import visualize_path
-
     path = astar_search("king", "change")
     print(" → ".join(path))
-    visualize_path(path)
 
