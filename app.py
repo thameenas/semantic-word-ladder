@@ -18,7 +18,7 @@ with col1:
 with col2:
     end_word = st.text_input("End word", value="queen")
 
-st.subheader("Search controls")
+st.subheader("Search control:")
 
 k = st.slider(
     "k (neighbors per step)",

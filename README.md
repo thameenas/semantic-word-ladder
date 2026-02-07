@@ -16,19 +16,21 @@ Access the app at: https://huggingface.co/spaces/thameena/semantic-word-ladder
 
 A small hobby project to explore how words are connected in embedding space by treating semantic similarity as a search problem.
 
-Given a start word and a target word, the system finds a **semantic ladder** - a sequence of intermediate words that gradually move from the start to the target based on **cosine similarity**.
+Given a start word and a target word, the system finds a sequence of intermediate words that gradually move from the start to the target based on **cosine similarity**.
 
+A semantic ladder between 'sleep' and 'weather' would look something like:
+```
+sleep → wake → sunrise → sunny → cloudy → rain → weather
+```
 ---
 
 ## Core Ideas
-
-The project is built around a few key concepts.
 
 ---
 
 ### 1. Word Embeddings
 
-Words are converted into dense vectors using a pretrained **sentence-transformer** model.
+Words are converted into embeddings using all-MiniLM-L6-v2 from the sentence-transformers library.
 
 Semantic similarity between words is measured using **cosine similarity**, which captures how closely two words align in meaning.
 
@@ -37,7 +39,7 @@ Semantic similarity between words is measured using **cosine similarity**, which
 ### 2. Semantic Space as a Graph
 
 - Each word is treated as a **node**
-- Edges are implicit: the **top-k most similar words** form the local neighborhood
+- Top K most similar neighbours to a node is computed using FAISS library
 - The full graph is **never built explicitly**
 
 This allows semantic navigation to be treated as a **graph search problem** rather than a static similarity lookup.
@@ -46,12 +48,7 @@ This allows semantic navigation to be treated as a **graph search problem** rath
 
 ### 3. A* Search for Semantic Navigation
 
-The ladder is found using **A\*** search, where:
-
-- Each step moves to a nearby semantic neighbor
-- The algorithm balances:
-  - **local smoothness** (don’t jump too far)
-  - **progress toward the target**
+The ladder is found using **A\*** search, where each step moves to a nearby semantic neighbor using a heuristic function.
 
 ---
 
@@ -64,7 +61,7 @@ This project is designed to be run locally using **Python + uv**.
 
 ### Prerequisites
 
-- Python **3.10** or **3.11**
+- Python **3.10** 
 - `uv` installed
 
 ```bash
