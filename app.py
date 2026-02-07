@@ -13,10 +13,10 @@ st.caption("Embeddings + FAISS + A* Search")
 col1, col2 = st.columns(2)
 
 with col1:
-    start_word = st.text_input("Start word", value="king")
+    start_word = st.text_input("Start word", value="sleep")
 
 with col2:
-    end_word = st.text_input("End word", value="queen")
+    end_word = st.text_input("End word", value="weather")
 
 st.subheader("Search control:")
 
