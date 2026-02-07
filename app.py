@@ -1,7 +1,5 @@
 import streamlit as st
 from src.astar import astar_search
-from src.visualize_streamlit import plot_path
-from src.visualize_plotly import plot_path_3d
 
 st.set_page_config(
     page_title="Semantic Word Ladder",
@@ -56,6 +54,4 @@ if run:
         else:
             st.markdown("Semantic ladder found!")
             st.success(" → ".join(f"**{w}**" for w in path))
-            fig = plot_path_3d(path, method="umap")
-            st.plotly_chart(fig, use_container_width=True)
 
