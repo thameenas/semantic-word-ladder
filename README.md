@@ -26,8 +26,6 @@ sleep → wake → sunrise → sunny → cloudy → rain → weather
 
 ## Core Ideas
 
----
-
 ### 1. Word Embeddings
 
 Words are converted into embeddings using all-MiniLM-L6-v2 from the sentence-transformers library.
